@@ -1,13 +1,25 @@
-import React from 'react'
-import {Container, AppBar, typography, Grow, Grid, Typography} from '@material-ui/core'
+import React, {useState, useEffect} from 'react'
+import {Container, AppBar, Grow, Grid, Typography} from '@material-ui/core'
+// *this allows us to dispatch an action
+import { useDispatch } from 'react-redux';
+
+import {getPosts} from './actions/posts'
 import memories from './images/memories.png'
 import Posts from './Components/Posts/Posts'
 import Form from './Components/Forms/Form'
 import useStyles from './styles'
 
+
 // *<Grow>; provides simple animation
 const App = () => {
+    const dispatch = useDispatch()
     const classes = useStyles()
+
+    useEffect(()=> {
+        dispatch(getPosts())
+    },[dispatch])
+
+
     return (
         <Container maxWidth='lg'>
         <h1>You left off at 39:19 10/18/2021</h1>
