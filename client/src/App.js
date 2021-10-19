@@ -3,14 +3,18 @@ import {Container, AppBar, typography, Grow, Grid, Typography} from '@material-u
 import memories from './images/memories.png'
 import Posts from './Components/Posts/Posts'
 import Form from './Components/Forms/Form'
+import useStyles from './styles'
 
 // *<Grow>; provides simple animation
 const App = () => {
+    const classes = useStyles()
     return (
         <Container maxWidth='lg'>
-            <AppBar position='static' color='inherit'>
-                <Typography variant='h2' align='center'>Stock Portolio Builder</Typography>
-                <img src={memories} alt="icon" height ="60"/>
+        <h1>You left off at 39:19 10/18/2021</h1>
+        
+            <AppBar className={classes.appBar} position='static' color='inherit'>
+                <Typography className={classes.heading} variant='h2' align='center'>Stock Portolio Builder</Typography>
+                <img className={classes.image} src={memories} alt="icon" height ="60"/>
             </AppBar>
             <Grow in>
                 <Container>
