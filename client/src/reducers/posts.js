@@ -1,15 +1,15 @@
 // import { FETCH_ALL, CREATE, UPDATE, DELETE, LIKE } from '../constants/actionTypes';
-export default (posts=[], action) => {
-
-    switch(action.type){
+// *action.payload are our actual posts from dispatch({type:'FETCH_ALL', payload:[]})
+export default (posts = [], action) => {
+    switch(action.type) {
         case 'FETCH_ALL':
-            // *action.payload are our actual posts from dispatch({type:'FETCH_ALL', payload:[]})
             return action.payload;
         case 'CREATE':
-            return posts;
+            return [...posts, action.payload];
         default:
             return posts;
     }
+
 }
 
 
